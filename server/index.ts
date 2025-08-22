@@ -35,7 +35,7 @@ export function createServer() {
   app.get("/api/transfers", getTransfers);
   app.post("/api/transfers", createTransfer);
   app.get("/api/assignments", getAssignments);
-  app.post("/api/assignments", createAssignments);
+  app.post("/api/assignments", createAssignment);
 
   return app;
 }
