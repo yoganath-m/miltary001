@@ -28,24 +28,38 @@ export default function Transfers() {
 
   const fetchTransfers = async () => {
     try {
+      console.log("Attempting to fetch transfers from /api/transfers");
       const response = await fetch("/api/transfers");
+      console.log("Response received:", response.status, response.statusText);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      console.log("Transfers data received:", data);
       setTransfers(data);
     } catch (error) {
       console.error("Error fetching transfers:", error);
+      // Fallback to empty array on error
+      setTransfers([]);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      console.log("Submitting transfer:", formData);
       const response = await fetch("/api/transfers", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      
+
+      console.log("Submit response:", response.status, response.statusText);
+
       if (response.ok) {
+        console.log("Transfer created successfully");
         fetchTransfers();
         setFormData({
           fromBase: "",
@@ -54,6 +68,8 @@ export default function Transfers() {
           quantity: "",
           date: "",
         });
+      } else {
+        console.error("Failed to create transfer:", response.status, response.statusText);
       }
     } catch (error) {
       console.error("Error creating transfer:", error);

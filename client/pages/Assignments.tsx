@@ -26,24 +26,38 @@ export default function Assignments() {
 
   const fetchAssignments = async () => {
     try {
+      console.log("Attempting to fetch assignments from /api/assignments");
       const response = await fetch("/api/assignments");
+      console.log("Response received:", response.status, response.statusText);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      console.log("Assignments data received:", data);
       setAssignments(data);
     } catch (error) {
       console.error("Error fetching assignments:", error);
+      // Fallback to empty array on error
+      setAssignments([]);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      console.log("Submitting assignment:", formData);
       const response = await fetch("/api/assignments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      
+
+      console.log("Submit response:", response.status, response.statusText);
+
       if (response.ok) {
+        console.log("Assignment created successfully");
         fetchAssignments();
         setFormData({
           personnelName: "",
@@ -51,6 +65,8 @@ export default function Assignments() {
           quantity: "",
           expended: false,
         });
+      } else {
+        console.error("Failed to create assignment:", response.status, response.statusText);
       }
     } catch (error) {
       console.error("Error creating assignment:", error);
