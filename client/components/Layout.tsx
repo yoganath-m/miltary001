@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
+import "../basic.css";
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,18 +18,18 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div>
-      <div>
-        <h1>Military Asset Management</h1>
-        <div>
+      <div className="nav-header">
+        <h1 className="nav-title">Military Asset Management</h1>
+        <div className="nav-links">
           {navigation.map((item) => (
             <Link key={item.name} to={item.href}>
               {item.name}
             </Link>
           ))}
         </div>
-        <div>Admin User</div>
+        <div className="nav-user">Admin User</div>
       </div>
-      <div>{children}</div>
+      <div className="main-content">{children}</div>
     </div>
   );
 }
