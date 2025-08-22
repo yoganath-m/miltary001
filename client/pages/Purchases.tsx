@@ -38,12 +38,12 @@ export default function Purchases() {
   return (
     <Layout>
       <div>
-        <h1>Purchases</h1>
+        <h1 className="page-title">Purchases</h1>
         
-        <div>
-          <h2>Add New Purchase</h2>
+        <div className="form-container">
+          <h2 className="form-title">Add New Purchase</h2>
           <form onSubmit={handleSubmit}>
-            <div>
+            <div className="form-field">
               <label>Base</label>
               <select
                 required
@@ -56,7 +56,7 @@ export default function Purchases() {
                 <option value="base-charlie">Base Charlie</option>
               </select>
             </div>
-            <div>
+            <div className="form-field">
               <label>Equipment Type</label>
               <input
                 type="text"
@@ -66,7 +66,7 @@ export default function Purchases() {
                 onChange={(e) => setFormData({ ...formData, equipmentType: e.target.value })}
               />
             </div>
-            <div>
+            <div className="form-field">
               <label>Quantity</label>
               <input
                 type="number"
@@ -77,7 +77,7 @@ export default function Purchases() {
                 onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
               />
             </div>
-            <div>
+            <div className="form-field">
               <label>Date</label>
               <input
                 type="date"
@@ -86,14 +86,14 @@ export default function Purchases() {
                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
               />
             </div>
-            <div>
-              <button type="submit">Add Purchase</button>
+            <div className="form-field">
+              <button type="submit" className="btn btn-primary">Add Purchase</button>
             </div>
           </form>
         </div>
 
-        <div>
-          <h2>Purchase History</h2>
+        <div className="table-container">
+          <h2 className="table-title">Purchase History</h2>
           <table>
             <thead>
               <tr>

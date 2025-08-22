@@ -60,58 +60,61 @@ export default function Assignments() {
   return (
     <Layout>
       <div>
-        <h1>Assignments & Expenditures</h1>
+        <h1 className="page-title">Assignments & Expenditures</h1>
         
-        <form onSubmit={handleSubmit}>
-          <h2>Add Assignment</h2>
-          
-          <div>
-            <label>Personnel Name:</label>
-            <input
-              type="text"
-              value={formData.personnelName}
-              onChange={(e) => setFormData({ ...formData, personnelName: e.target.value })}
-              required
-            />
-          </div>
-
-          <div>
-            <label>Asset:</label>
-            <input
-              type="text"
-              value={formData.asset}
-              onChange={(e) => setFormData({ ...formData, asset: e.target.value })}
-              required
-            />
-          </div>
-
-          <div>
-            <label>Quantity:</label>
-            <input
-              type="number"
-              value={formData.quantity}
-              onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-              required
-              min="1"
-            />
-          </div>
-
-          <div>
-            <label>
+        <div className="form-container">
+          <h2 className="form-title">Add Assignment</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-field">
+              <label>Personnel Name:</label>
               <input
-                type="checkbox"
-                checked={formData.expended}
-                onChange={(e) => setFormData({ ...formData, expended: e.target.checked })}
+                type="text"
+                value={formData.personnelName}
+                onChange={(e) => setFormData({ ...formData, personnelName: e.target.value })}
+                required
               />
-              Expended
-            </label>
-          </div>
+            </div>
 
-          <button type="submit">Add Assignment</button>
-        </form>
+            <div className="form-field">
+              <label>Asset:</label>
+              <input
+                type="text"
+                value={formData.asset}
+                onChange={(e) => setFormData({ ...formData, asset: e.target.value })}
+                required
+              />
+            </div>
 
-        <div>
-          <h2>Assignment History</h2>
+            <div className="form-field">
+              <label>Quantity:</label>
+              <input
+                type="number"
+                value={formData.quantity}
+                onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                required
+                min="1"
+              />
+            </div>
+
+            <div className="form-field">
+              <label>
+                <input
+                  type="checkbox"
+                  checked={formData.expended}
+                  onChange={(e) => setFormData({ ...formData, expended: e.target.checked })}
+                />
+                Expended
+              </label>
+            </div>
+
+            <div className="form-field">
+              <button type="submit" className="btn btn-primary">Add Assignment</button>
+            </div>
+          </form>
+        </div>
+
+        <div className="table-container">
+          <h2 className="table-title">Assignment History</h2>
           <table>
             <thead>
               <tr>

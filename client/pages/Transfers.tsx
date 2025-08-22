@@ -65,75 +65,78 @@ export default function Transfers() {
   return (
     <Layout>
       <div>
-        <h1>Transfers</h1>
+        <h1 className="page-title">Transfers</h1>
         
-        <form onSubmit={handleSubmit}>
-          <h2>Add Transfer</h2>
-          
-          <div>
-            <label>From Base:</label>
-            <select
-              value={formData.fromBase}
-              onChange={(e) => setFormData({ ...formData, fromBase: e.target.value })}
-              required
-            >
-              <option value="">Select Base</option>
-              {bases.map(base => (
-                <option key={base} value={base}>{base}</option>
-              ))}
-            </select>
-          </div>
+        <div className="form-container">
+          <h2 className="form-title">Add Transfer</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-field">
+              <label>From Base:</label>
+              <select
+                value={formData.fromBase}
+                onChange={(e) => setFormData({ ...formData, fromBase: e.target.value })}
+                required
+              >
+                <option value="">Select Base</option>
+                {bases.map(base => (
+                  <option key={base} value={base}>{base}</option>
+                ))}
+              </select>
+            </div>
 
-          <div>
-            <label>To Base:</label>
-            <select
-              value={formData.toBase}
-              onChange={(e) => setFormData({ ...formData, toBase: e.target.value })}
-              required
-            >
-              <option value="">Select Base</option>
-              {bases.map(base => (
-                <option key={base} value={base}>{base}</option>
-              ))}
-            </select>
-          </div>
+            <div className="form-field">
+              <label>To Base:</label>
+              <select
+                value={formData.toBase}
+                onChange={(e) => setFormData({ ...formData, toBase: e.target.value })}
+                required
+              >
+                <option value="">Select Base</option>
+                {bases.map(base => (
+                  <option key={base} value={base}>{base}</option>
+                ))}
+              </select>
+            </div>
 
-          <div>
-            <label>Equipment Type:</label>
-            <input
-              type="text"
-              value={formData.equipmentType}
-              onChange={(e) => setFormData({ ...formData, equipmentType: e.target.value })}
-              required
-            />
-          </div>
+            <div className="form-field">
+              <label>Equipment Type:</label>
+              <input
+                type="text"
+                value={formData.equipmentType}
+                onChange={(e) => setFormData({ ...formData, equipmentType: e.target.value })}
+                required
+              />
+            </div>
 
-          <div>
-            <label>Quantity:</label>
-            <input
-              type="number"
-              value={formData.quantity}
-              onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-              required
-              min="1"
-            />
-          </div>
+            <div className="form-field">
+              <label>Quantity:</label>
+              <input
+                type="number"
+                value={formData.quantity}
+                onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                required
+                min="1"
+              />
+            </div>
 
-          <div>
-            <label>Date:</label>
-            <input
-              type="date"
-              value={formData.date}
-              onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-              required
-            />
-          </div>
+            <div className="form-field">
+              <label>Date:</label>
+              <input
+                type="date"
+                value={formData.date}
+                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                required
+              />
+            </div>
 
-          <button type="submit">Add Transfer</button>
-        </form>
+            <div className="form-field">
+              <button type="submit" className="btn btn-primary">Add Transfer</button>
+            </div>
+          </form>
+        </div>
 
-        <div>
-          <h2>Transfer History</h2>
+        <div className="table-container">
+          <h2 className="table-title">Transfer History</h2>
           <table>
             <thead>
               <tr>
