@@ -59,90 +59,77 @@ export default function Assignments() {
 
   return (
     <Layout>
-      <div style={{ padding: "20px" }}>
+      <div>
         <h1>Assignments & Expenditures</h1>
         
-        <form onSubmit={handleSubmit} style={{ marginBottom: "30px", padding: "20px", border: "1px solid #ccc" }}>
+        <form onSubmit={handleSubmit}>
           <h2>Add Assignment</h2>
           
-          <div style={{ marginBottom: "10px" }}>
-            <label>Personnel Name:</label><br />
+          <div>
+            <label>Personnel Name:</label>
             <input
               type="text"
               value={formData.personnelName}
               onChange={(e) => setFormData({ ...formData, personnelName: e.target.value })}
               required
-              style={{ width: "200px", padding: "5px", marginTop: "5px" }}
             />
           </div>
 
-          <div style={{ marginBottom: "10px" }}>
-            <label>Asset:</label><br />
+          <div>
+            <label>Asset:</label>
             <input
               type="text"
               value={formData.asset}
               onChange={(e) => setFormData({ ...formData, asset: e.target.value })}
               required
-              style={{ width: "200px", padding: "5px", marginTop: "5px" }}
             />
           </div>
 
-          <div style={{ marginBottom: "10px" }}>
-            <label>Quantity:</label><br />
+          <div>
+            <label>Quantity:</label>
             <input
               type="number"
               value={formData.quantity}
               onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
               required
               min="1"
-              style={{ width: "200px", padding: "5px", marginTop: "5px" }}
             />
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
+          <div>
             <label>
               <input
                 type="checkbox"
                 checked={formData.expended}
                 onChange={(e) => setFormData({ ...formData, expended: e.target.checked })}
-                style={{ marginRight: "8px" }}
               />
               Expended
             </label>
           </div>
 
-          <button 
-            type="submit"
-            style={{ padding: "8px 16px", backgroundColor: "#ddd", border: "1px solid #999" }}
-          >
-            Add Assignment
-          </button>
+          <button type="submit">Add Assignment</button>
         </form>
 
         <div>
           <h2>Assignment History</h2>
-          <table border={1} style={{ width: "100%", borderCollapse: "collapse" }}>
+          <table>
             <thead>
-              <tr style={{ backgroundColor: "#f0f0f0" }}>
-                <th style={{ padding: "8px", textAlign: "left" }}>Personnel</th>
-                <th style={{ padding: "8px", textAlign: "left" }}>Asset</th>
-                <th style={{ padding: "8px", textAlign: "left" }}>Quantity</th>
-                <th style={{ padding: "8px", textAlign: "left" }}>Status</th>
-                <th style={{ padding: "8px", textAlign: "left" }}>Date</th>
+              <tr>
+                <th>Personnel</th>
+                <th>Asset</th>
+                <th>Quantity</th>
+                <th>Status</th>
+                <th>Date</th>
               </tr>
             </thead>
             <tbody>
               {assignments.map((assignment) => (
                 <tr key={assignment.id}>
-                  <td style={{ padding: "8px" }}>{assignment.personnelName}</td>
-                  <td style={{ padding: "8px" }}>{assignment.asset}</td>
-                  <td style={{ padding: "8px" }}>{assignment.quantity}</td>
-                  <td style={{ padding: "8px" }}>
-                    {assignment.expended ? "Expended" : "Assigned"}
-                  </td>
-                  <td style={{ padding: "8px" }}>
-                    {new Date(assignment.createdAt).toLocaleDateString()}
-                  </td>
+                  <td>{assignment.personnelName}</td>
+                  <td>{assignment.asset}</td>
+                  <td>{assignment.quantity}</td>
+                  <td>{assignment.expended ? "Expended" : "Assigned"}</td>
+                  <td>{new Date(assignment.createdAt).toLocaleDateString()}</td>
                 </tr>
               ))}
             </tbody>
