@@ -18,10 +18,34 @@ export default function Purchases() {
   });
 
   const [purchases] = useState<Purchase[]>([
-    { id: 1, date: "2024-01-15", base: "Base Alpha", equipment: "M4 Rifles", quantity: 25 },
-    { id: 2, date: "2024-01-14", base: "Base Bravo", equipment: "Tactical Vests", quantity: 50 },
-    { id: 3, date: "2024-01-12", base: "Base Charlie", equipment: "Night Vision", quantity: 10 },
-    { id: 4, date: "2024-01-10", base: "Base Alpha", equipment: "Ammunition", quantity: 1000 },
+    {
+      id: 1,
+      date: "2024-01-15",
+      base: "Base Alpha",
+      equipment: "M4 Rifles",
+      quantity: 25,
+    },
+    {
+      id: 2,
+      date: "2024-01-14",
+      base: "Base Bravo",
+      equipment: "Tactical Vests",
+      quantity: 50,
+    },
+    {
+      id: 3,
+      date: "2024-01-12",
+      base: "Base Charlie",
+      equipment: "Night Vision",
+      quantity: 10,
+    },
+    {
+      id: 4,
+      date: "2024-01-10",
+      base: "Base Alpha",
+      equipment: "Ammunition",
+      quantity: 1000,
+    },
   ]);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -39,7 +63,7 @@ export default function Purchases() {
     <Layout>
       <div>
         <h1 className="page-title">Purchases</h1>
-        
+
         <div className="form-container">
           <h2 className="form-title">Add New Purchase</h2>
           <form onSubmit={handleSubmit}>
@@ -48,7 +72,9 @@ export default function Purchases() {
               <select
                 required
                 value={formData.base}
-                onChange={(e) => setFormData({ ...formData, base: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, base: e.target.value })
+                }
               >
                 <option value="">Select Base</option>
                 <option value="base-alpha">Base Alpha</option>
@@ -63,7 +89,9 @@ export default function Purchases() {
                 required
                 placeholder="Enter equipment type"
                 value={formData.equipmentType}
-                onChange={(e) => setFormData({ ...formData, equipmentType: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, equipmentType: e.target.value })
+                }
               />
             </div>
             <div className="form-field">
@@ -74,7 +102,9 @@ export default function Purchases() {
                 min="1"
                 placeholder="Enter quantity"
                 value={formData.quantity}
-                onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, quantity: e.target.value })
+                }
               />
             </div>
             <div className="form-field">
@@ -83,11 +113,15 @@ export default function Purchases() {
                 type="date"
                 required
                 value={formData.date}
-                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, date: e.target.value })
+                }
               />
             </div>
             <div className="form-field">
-              <button type="submit" className="btn btn-primary">Add Purchase</button>
+              <button type="submit" className="btn btn-primary">
+                Add Purchase
+              </button>
             </div>
           </form>
         </div>

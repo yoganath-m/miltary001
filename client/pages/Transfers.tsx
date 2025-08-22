@@ -69,7 +69,11 @@ export default function Transfers() {
           date: "",
         });
       } else {
-        console.error("Failed to create transfer:", response.status, response.statusText);
+        console.error(
+          "Failed to create transfer:",
+          response.status,
+          response.statusText,
+        );
       }
     } catch (error) {
       console.error("Error creating transfer:", error);
@@ -82,7 +86,7 @@ export default function Transfers() {
     <Layout>
       <div>
         <h1 className="page-title">Transfers</h1>
-        
+
         <div className="form-container">
           <h2 className="form-title">Add Transfer</h2>
           <form onSubmit={handleSubmit}>
@@ -90,12 +94,16 @@ export default function Transfers() {
               <label>From Base:</label>
               <select
                 value={formData.fromBase}
-                onChange={(e) => setFormData({ ...formData, fromBase: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, fromBase: e.target.value })
+                }
                 required
               >
                 <option value="">Select Base</option>
-                {bases.map(base => (
-                  <option key={base} value={base}>{base}</option>
+                {bases.map((base) => (
+                  <option key={base} value={base}>
+                    {base}
+                  </option>
                 ))}
               </select>
             </div>
@@ -104,12 +112,16 @@ export default function Transfers() {
               <label>To Base:</label>
               <select
                 value={formData.toBase}
-                onChange={(e) => setFormData({ ...formData, toBase: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, toBase: e.target.value })
+                }
                 required
               >
                 <option value="">Select Base</option>
-                {bases.map(base => (
-                  <option key={base} value={base}>{base}</option>
+                {bases.map((base) => (
+                  <option key={base} value={base}>
+                    {base}
+                  </option>
                 ))}
               </select>
             </div>
@@ -119,7 +131,9 @@ export default function Transfers() {
               <input
                 type="text"
                 value={formData.equipmentType}
-                onChange={(e) => setFormData({ ...formData, equipmentType: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, equipmentType: e.target.value })
+                }
                 required
               />
             </div>
@@ -129,7 +143,9 @@ export default function Transfers() {
               <input
                 type="number"
                 value={formData.quantity}
-                onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, quantity: e.target.value })
+                }
                 required
                 min="1"
               />
@@ -140,13 +156,17 @@ export default function Transfers() {
               <input
                 type="date"
                 value={formData.date}
-                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, date: e.target.value })
+                }
                 required
               />
             </div>
 
             <div className="form-field">
-              <button type="submit" className="btn btn-primary">Add Transfer</button>
+              <button type="submit" className="btn btn-primary">
+                Add Transfer
+              </button>
             </div>
           </form>
         </div>

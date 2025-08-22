@@ -71,7 +71,7 @@ export interface DashboardFilters {
 }
 
 // User roles for RBAC
-export type UserRole = 'admin' | 'commander' | 'logistics';
+export type UserRole = "admin" | "commander" | "logistics";
 
 export interface User {
   id: number;

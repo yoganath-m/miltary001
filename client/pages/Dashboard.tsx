@@ -7,7 +7,9 @@ function NetMovementModal({ onClose }: { onClose: () => void }) {
       <div className="modal-content">
         <div className="modal-header">
           <h3 className="modal-title">Net Movement Breakdown</h3>
-          <button className="modal-close" onClick={onClose}>×</button>
+          <button className="modal-close" onClick={onClose}>
+            ×
+          </button>
         </div>
         <div>
           <div className="breakdown-item">
@@ -52,7 +54,7 @@ export default function Dashboard() {
     <Layout>
       <div>
         <h1 className="page-title">Dashboard</h1>
-        
+
         <div className="filters-container">
           <h2 className="filters-title">Filters</h2>
           <div className="filters-row">
@@ -61,14 +63,18 @@ export default function Dashboard() {
               <input
                 type="date"
                 value={filters.date}
-                onChange={(e) => setFilters({ ...filters, date: e.target.value })}
+                onChange={(e) =>
+                  setFilters({ ...filters, date: e.target.value })
+                }
               />
             </div>
             <div className="form-field">
               <label>Base</label>
               <select
                 value={filters.base}
-                onChange={(e) => setFilters({ ...filters, base: e.target.value })}
+                onChange={(e) =>
+                  setFilters({ ...filters, base: e.target.value })
+                }
               >
                 <option value="">All Bases</option>
                 <option value="base-alpha">Base Alpha</option>
@@ -82,7 +88,9 @@ export default function Dashboard() {
                 type="text"
                 placeholder="Enter equipment type"
                 value={filters.equipmentType}
-                onChange={(e) => setFilters({ ...filters, equipmentType: e.target.value })}
+                onChange={(e) =>
+                  setFilters({ ...filters, equipmentType: e.target.value })
+                }
               />
             </div>
           </div>
@@ -91,17 +99,21 @@ export default function Dashboard() {
         <div className="metrics-container">
           <div className="metric-box">
             <h3 className="metric-title">Opening Balance</h3>
-            <p className="metric-value">{metrics.openingBalance.toLocaleString()}</p>
+            <p className="metric-value">
+              {metrics.openingBalance.toLocaleString()}
+            </p>
           </div>
           <div className="metric-box">
             <h3 className="metric-title">Closing Balance</h3>
-            <p className="metric-value">{metrics.closingBalance.toLocaleString()}</p>
+            <p className="metric-value">
+              {metrics.closingBalance.toLocaleString()}
+            </p>
           </div>
           <div className="metric-box">
             <h3 className="metric-title">Net Movement</h3>
             <p className="metric-value">
-              <button 
-                className="btn btn-primary" 
+              <button
+                className="btn btn-primary"
                 onClick={() => setShowNetMovementModal(true)}
               >
                 +{metrics.netMovement.toLocaleString()}

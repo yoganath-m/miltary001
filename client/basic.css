@@ -138,7 +138,8 @@ table {
   border: 1px solid #000;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #666;
   padding: 8px;
   text-align: left;

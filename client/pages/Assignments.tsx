@@ -66,7 +66,11 @@ export default function Assignments() {
           expended: false,
         });
       } else {
-        console.error("Failed to create assignment:", response.status, response.statusText);
+        console.error(
+          "Failed to create assignment:",
+          response.status,
+          response.statusText,
+        );
       }
     } catch (error) {
       console.error("Error creating assignment:", error);
@@ -77,7 +81,7 @@ export default function Assignments() {
     <Layout>
       <div>
         <h1 className="page-title">Assignments & Expenditures</h1>
-        
+
         <div className="form-container">
           <h2 className="form-title">Add Assignment</h2>
           <form onSubmit={handleSubmit}>
@@ -86,7 +90,9 @@ export default function Assignments() {
               <input
                 type="text"
                 value={formData.personnelName}
-                onChange={(e) => setFormData({ ...formData, personnelName: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, personnelName: e.target.value })
+                }
                 required
               />
             </div>
@@ -96,7 +102,9 @@ export default function Assignments() {
               <input
                 type="text"
                 value={formData.asset}
-                onChange={(e) => setFormData({ ...formData, asset: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, asset: e.target.value })
+                }
                 required
               />
             </div>
@@ -106,7 +114,9 @@ export default function Assignments() {
               <input
                 type="number"
                 value={formData.quantity}
-                onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, quantity: e.target.value })
+                }
                 required
                 min="1"
               />
@@ -117,14 +127,18 @@ export default function Assignments() {
                 <input
                   type="checkbox"
                   checked={formData.expended}
-                  onChange={(e) => setFormData({ ...formData, expended: e.target.checked })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, expended: e.target.checked })
+                  }
                 />
                 Expended
               </label>
             </div>
 
             <div className="form-field">
-              <button type="submit" className="btn btn-primary">Add Assignment</button>
+              <button type="submit" className="btn btn-primary">
+                Add Assignment
+              </button>
             </div>
           </form>
         </div>
