@@ -2,6 +2,15 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import {
+  getDashboardMetrics,
+  getPurchases,
+  createPurchase,
+  getTransfers,
+  createTransfer,
+  getAssignments,
+  createAssignment,
+} from "./routes/assets";
 
 export function createServer() {
   const app = express();
@@ -18,6 +27,15 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+
+  // Asset management routes
+  app.get("/api/dashboard", getDashboardMetrics);
+  app.get("/api/purchases", getPurchases);
+  app.post("/api/purchases", createPurchase);
+  app.get("/api/transfers", getTransfers);
+  app.post("/api/transfers", createTransfer);
+  app.get("/api/assignments", getAssignments);
+  app.post("/api/assignments", createAssignments);
 
   return app;
 }
